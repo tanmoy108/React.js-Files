@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Movie from "./Movie";
+import List from "./Listdb";
+
+function getMovie(value) {
+  return (
+    <Movie
+      imgSrc={value.img}
+      title={value.name}
+      website={value.web}
+      about={value.aboutMovie}
+      link={value.mlink}
+    />
+  );
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <>{List.map(getMovie)}</>;
 }
 
 export default App;
