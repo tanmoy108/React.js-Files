@@ -1,22 +1,29 @@
 import React from "react";
-import Movie from "./Movie";
-import List from "./Listdb";
+import Match from "./Match";
+import NotMatch from "./NotMatch";
 
-const App = () => (
-  <>
-    {List.map((value) => {
-      return (
-        <Movie
-          key={value.id}
-          imgSrc={value.img}
-          title={value.name}
-          website={value.web}
-          about={value.aboutMovie}
-          link={value.mlink}
-        />
-      );
-    })}
-  </>
-);
+const Maching = (props) => {
+  let { x, y, z } = props;
+  return (
+    <>
+      {x === y && y === z ? (
+        <Match x={x} y={y} z={z} />
+      ) : (
+        <NotMatch x={x} y={y} z={z} />
+      )}
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <>
+      <h1 className="title">Slot Machine</h1>
+      <Maching x="😺" y="😠" z="😺" />
+      <Maching x="😺" y="😺" z="😺" />
+      <Maching x="😼" y="😠" z="😺" />
+    </>
+  );
+};
 
 export default App;
