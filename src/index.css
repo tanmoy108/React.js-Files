@@ -7,3 +7,27 @@ body
 {
   background-color: rgb(228, 239, 253);
 }
+.part
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1
+{
+  font-size: 70px;
+}
+button
+{
+  padding: 20px;
+  background-color: tomato;
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
