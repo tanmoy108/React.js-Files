@@ -7,3 +7,14 @@ body
 {
   background-color: rgb(228, 239, 253);
 }
+.part
+{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1
+{
+  font-size: 50px;
+}
