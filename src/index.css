@@ -1,9 +1,25 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body
-{
-  background-color: rgb(228, 239, 253);
+body {
+  background-color: rgb(239, 228, 253);
+}
+.part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+button {
+  padding: 30px;
+  background-color: rgb(78, 245, 161);
+  color: rgb(0, 0, 0);
+  border: none;
+  text-transform: uppercase;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
