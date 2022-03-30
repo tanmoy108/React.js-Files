@@ -1,45 +1,89 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [current, update] = useState("");
-  const [a, b] = useState();
-  const [current2, update2] = useState("");
-  const [c, d] = useState();
+  const [current, update] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+  });
+  const [current1, update1] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+  });
 
-  const TypeName = (e) => {
-    let x = e.target.value;
-    update(x);
+  const PressSubmit = (e) => {
+    e.preventDefault();
+    update1(() => {
+      return {
+        fname: current.fname,
+        lname: current.lname,
+        email: current.email,
+      };
+    });
   };
 
-  const TypeName1 = (event) => {
-    event.preventDefault();
-    b(current);
-    d(current2);
+  const TextInput = (e) => {
+    let text = e.target.value;
+    let inputName = e.target.name;
+    console.log(text);
+    console.log(inputName);
+
+    update((e) => {
+      console.log(e);
+      if (inputName === "fname") {
+        return {
+          fname: text,
+          lname: e.lname,
+          email: e.email,
+        };
+      } else if (inputName === "lname") {
+        return {
+          fname: e.fname,
+          lname: text,
+          email: e.email,
+        };
+      } else {
+        return {
+          fname: e.fname,
+          lname: e.lname,
+          email: text,
+        };
+      }
+    });
   };
 
-  const TypeLName = (e) => {
-    update2(e.target.value);
-  };
   return (
     <>
       <div className="part">
-        <form onSubmit={TypeName1}>
-          <h1>
-            Hello {a}
-            {c}
-          </h1>
+        <h1>
+          Hello {current1.fname} {current1.lname}
+        </h1>
+        <h4>{current1.email}</h4>
+        <form onSubmit={PressSubmit}>
           <input
             type="text"
-            placeholder="Enter Your First Name"
-            onChange={TypeName}
-            value={current}
+            onChange={TextInput}
+            name="fname"
+            placeholder="Enter your First Name"
+            value={current.fname}
           />
           <br />
           <input
             type="text"
-            placeholder="Enter Your Last Name"
-            onChange={TypeLName}
-            value={current2}
+            onChange={TextInput}
+            name="lname"
+            placeholder="Enter your Last Name"
+            value={current.lname}
+          />
+          <br />
+          <input
+            type="email"
+            onChange={TextInput}
+            name="email"
+            placeholder="Enter your Email"
+            value={current.email}
+            autoComplete="off"
           />
           <br />
           <button type="submit">Submit</button>
