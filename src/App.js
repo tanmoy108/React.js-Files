@@ -2,54 +2,30 @@ import React, { useState } from "react";
 
 const App = () => {
   const [current, update] = useState({
-    fname: "",
-    lname: "",
-    email: "",
-  });
-  const [current1, update1] = useState({
-    fname: "",
-    lname: "",
+    firstname: "",
+    middlename: "",
+    lastname: "",
     email: "",
   });
 
-  const PressSubmit = (e) => {
-    e.preventDefault();
-    update1(() => {
+  const [bcurrent, bupdate] = useState(current);
+
+  const OnchangeFun = (event) => {
+    let inputvalue = event.target.value;
+    let inputname = event.target.name;
+    update((e) => {
       return {
-        fname: current.fname,
-        lname: current.lname,
-        email: current.email,
+        ...e,
+        [inputname]: inputvalue,
       };
     });
   };
-
-  const TextInput = (e) => {
-    let text = e.target.value;
-    let inputName = e.target.name;
-    console.log(text);
-    console.log(inputName);
-
-    update((e) => {
-      console.log(e);
-      if (inputName === "fname") {
-        return {
-          fname: text,
-          lname: e.lname,
-          email: e.email,
-        };
-      } else if (inputName === "lname") {
-        return {
-          fname: e.fname,
-          lname: text,
-          email: e.email,
-        };
-      } else {
-        return {
-          fname: e.fname,
-          lname: e.lname,
-          email: text,
-        };
-      }
+  const Onsubmit = (e) => {
+    e.preventDefault();
+    bupdate(() => {
+      return {
+        ...current,
+      };
     });
   };
 
@@ -57,31 +33,41 @@ const App = () => {
     <>
       <div className="part">
         <h1>
-          Hello {current1.fname} {current1.lname}
+          {`Hello ${bcurrent.firstname} 
+          ${bcurrent.middlename}  
+          ${bcurrent.lastname}`}
         </h1>
-        <h4>{current1.email}</h4>
-        <form onSubmit={PressSubmit}>
+        <h4>Email: {bcurrent.email}</h4>
+        <form onSubmit={Onsubmit}>
           <input
             type="text"
-            onChange={TextInput}
-            name="fname"
-            placeholder="Enter your First Name"
-            value={current.fname}
+            name="firstname"
+            onChange={OnchangeFun}
+            placeholder="Enter your firstname"
+            value={current.firstname}
           />
           <br />
           <input
             type="text"
-            onChange={TextInput}
-            name="lname"
-            placeholder="Enter your Last Name"
-            value={current.lname}
+            name="middlename"
+            onChange={OnchangeFun}
+            placeholder="Enter your middlename"
+            value={current.middlename}
+          />
+          <br />
+          <input
+            type="text"
+            name="lastname"
+            onChange={OnchangeFun}
+            placeholder="Enter your lastname"
+            value={current.lastname}
           />
           <br />
           <input
             type="email"
-            onChange={TextInput}
             name="email"
-            placeholder="Enter your Email"
+            onChange={OnchangeFun}
+            placeholder="Enter your email"
             value={current.email}
             autoComplete="off"
           />
