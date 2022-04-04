@@ -12,23 +12,53 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 input {
   width: 20rem;
   height: 40px;
   border: none;
-  padding: 0px 20px;
-  margin-bottom: 15px;
+  margin: 0px 20px;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
 }
 button {
-  padding: 10px 20px;
+  outline: none;
   border: none;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  background-color: tomato;
-  color: white;
-  border-radius: 10px;
-  text-transform: uppercase;
+}
+.itempart {
+  text-align: left;
+}
+.part2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+i {
+  color: tomato;
+  font-size: 30px;
+}
+ul {
+  list-style-type: none;
+  width: 300px;
+  height: 300px;
+  margin-top: 10px;
+}
+.ulscroll {
+  overflow: scroll;
+}
+li {
+  text-align: left;
+  text-transform: capitalize;
+}
+.List {
+  width: 20px;
+  margin-left: 10px;
 }

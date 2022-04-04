@@ -1,79 +1,77 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
+import Listitem from "./Listitem";
 
 const App = () => {
-  const [current, update] = useState({
-    firstname: "",
-    middlename: "",
-    lastname: "",
-    email: "",
-  });
-
-  const [bcurrent, bupdate] = useState(current);
-
-  const OnchangeFun = (event) => {
-    let inputvalue = event.target.value;
-    let inputname = event.target.name;
-    update((e) => {
-      return {
-        ...e,
-        [inputname]: inputvalue,
-      };
-    });
+  const [current, update] = useState("");
+  const [fcurrent, fupdate] = useState([]);
+  const inputtext = (e) => {
+    update(e.target.value);
   };
-  const Onsubmit = (e) => {
+
+  const buttonsubmit = (e) => {
     e.preventDefault();
-    bupdate(() => {
-      return {
-        ...current,
-      };
+
+    if (fcurrent.length > 5) {
+      let element = document.getElementById("ullist");
+      element.classList.add("ulscroll");
+    }
+
+    if (current != "") {
+      fupdate((old) => {
+        return [...old, current];
+      });
+      update("");
+    } else alert("fuck you");
+  };
+
+  const deleteitems = (id) => {
+    if (fcurrent.length <= 7) {
+      let element = document.getElementById("ullist");
+      element.classList.remove("ulscroll");
+    }
+
+    fupdate((old) => {
+      return old.filter((value, index) => {
+        return index !== id;
+      });
     });
   };
 
   return (
     <>
       <div className="part">
-        <h1>
-          {`Hello ${bcurrent.firstname} 
-          ${bcurrent.middlename}  
-          ${bcurrent.lastname}`}
-        </h1>
-        <h4>Email: {bcurrent.email}</h4>
-        <form onSubmit={Onsubmit}>
+        <h2 style={{ textTransform: "uppercase", marginBottom: "10px" }}>
+          To Do List
+        </h2>
+        <form onSubmit={buttonsubmit}>
           <input
             type="text"
-            name="firstname"
-            onChange={OnchangeFun}
-            placeholder="Enter your firstname"
-            value={current.firstname}
-          />
-          <br />
-          <input
-            type="text"
-            name="middlename"
-            onChange={OnchangeFun}
-            placeholder="Enter your middlename"
-            value={current.middlename}
-          />
-          <br />
-          <input
-            type="text"
-            name="lastname"
-            onChange={OnchangeFun}
-            placeholder="Enter your lastname"
-            value={current.lastname}
-          />
-          <br />
-          <input
-            type="email"
-            name="email"
-            onChange={OnchangeFun}
-            placeholder="Enter your email"
-            value={current.email}
+            placeholder="enter your bullshit"
+            onChange={inputtext}
+            name="bullshit"
             autoComplete="off"
+            value={current}
           />
-          <br />
-          <button type="submit">Submit</button>
+          <button>
+            <i className="fa-solid fa-circle-plus" type="submit"></i>{" "}
+          </button>
         </form>
+
+        <ul id="ullist">
+          {fcurrent.map((item, indexs) => {
+            return (
+              <>
+                <Listitem
+                  key={indexs}
+                  values={item}
+                  id={indexs}
+                  onselect={deleteitems}
+                />
+              </>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
