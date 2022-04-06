@@ -1,9 +1,55 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800;900&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body
-{
-  background-color: rgb(228, 239, 253);
+body {
+  background-color: rgb(253, 253, 216);
+  font-family: "Montserrat", sans-serif;
+}
+.header {
+  background-color: rgb(250, 250, 63);
+  color: rgb(65, 65, 65) !important;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+h1 {
+  font-weight: bolder;
+  color: rgb(65, 65, 65);
+}
+input {
+  border-radius: 10px 10px 0px 0px !important;
+  text-transform: capitalize;
+}
+textarea {
+  border-radius: 0px 0px 0px 0px !important;
+}
+.form-control:focus,
+button:focus {
+  border-color: none !important;
+  box-shadow: none !important;
+}
+.titleclass {
+  font-weight: bold;
+}
+.add {
+  width: 100%;
+  border-radius: 0px 0px 10px 10px !important;
+}
+.btnstyle {
+  background-color: rgb(250, 250, 63);
+  color: rgb(65, 65, 65);
+  outline: none;
+  border: none;
+}
+.btnstyle:hover {
+  background-color: rgb(255, 255, 0);
+  color: rgb(0, 0, 0);
+}
+.card {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px 0 rgba(133, 133, 133, 0.2),
+    0 6px 20px 0 rgba(149, 149, 149, 0.19);
 }
