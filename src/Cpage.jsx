@@ -1,34 +1,16 @@
-// import React from "react";
-
-// const Cpage = (props) => {
-//   return <><h1>hello {props.valueb}</h1></>;
-// };
-
-// export default Cpage;
-
-import React from "react";
+import React, { useContext } from "react";
 import { Name, Lastname } from "./App";
 
 const Cpage = () => {
+  const name = useContext(Name);
+  const lname = useContext(Lastname);
+
   return (
     <>
-      <Name.Consumer>
-        {(name) => {
-          return (
-            <>
-              <Lastname.Consumer>
-                {(lname) => {
-                  return (
-                    <h1>
-                      hello {name} {lname}
-                    </h1>
-                  );
-                }}
-              </Lastname.Consumer>
-            </>
-          );
-        }}
-      </Name.Consumer>
+      <h1>
+        Hello {name}
+        {lname}. How are you ?
+      </h1>
     </>
   );
 };

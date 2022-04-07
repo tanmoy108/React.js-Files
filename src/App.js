@@ -1,14 +1,3 @@
-// import React from "react";
-// import Apage from './Apage';
-
-// const App = () => {
-//   return <>
-//     <Apage value="tanmoy" />
-//   </>;
-// };
-
-// export default App;
-
 import React, { createContext } from "react";
 import Apage from "./Apage";
 
@@ -18,9 +7,9 @@ const Lastname = createContext();
 const App = () => {
   return (
     <>
-      <Name.Provider value="tanmoy">
-      <Lastname.Provider value="sharma">
-        <Apage />
+      <Name.Provider value="Tanmoy">
+        <Lastname.Provider value="Sharma">
+          <Apage />
         </Lastname.Provider>
       </Name.Provider>
     </>
@@ -28,4 +17,4 @@ const App = () => {
 };
 
 export default App;
-export { Name , Lastname };
+export { Name, Lastname };
