@@ -7,3 +7,8 @@ body
 {
   background-color: rgb(228, 239, 253);
 }
+.active-style
+{
+  color:rgb(19, 93, 0) !important;
+  text-transform: capitalize !important;
+}
