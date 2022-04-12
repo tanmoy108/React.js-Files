@@ -18,7 +18,7 @@ const Menu = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? "active-style" : "none")}
-        to="/bpage/cpage"
+        to="/cpage/tanmoy"
       >
         Cpage
       </NavLink>
