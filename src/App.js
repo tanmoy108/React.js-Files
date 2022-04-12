@@ -3,6 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Apage from "./Apage";
 import Bpage from "./Bpage";
+import Errors from "./Errors";
 
 const App = () => {
   const Cpage = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<Apage />} />
         <Route path="/bpage" element={<Bpage />} />
         <Route path="/bpage/cpage" element={<Cpage />} />
+        <Route path="*" element={<Errors />} />
       </Routes>
     </>
   );
