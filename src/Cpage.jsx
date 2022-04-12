@@ -1,11 +1,28 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const Cpage = () => {
-  const {name} = useParams(); 
+  const { fname, lname } = useParams();
+  const location = useLocation();
+  console.log(location);
   return (
     <>
-      <h1>Cpage {name} </h1>
+      <h1>
+        Cpage {fname}
+        {lname}
+      </h1>
+      <br />
+      <h2>path: {location.pathname}</h2>
+
+      {location.pathname === "/cpage/tanmoy/sharma" ? (
+        <button
+          onClick={() => {
+            alert("you got it");
+          }}
+        >
+          hello
+        </button>
+      ) : null}
     </>
   );
 };
