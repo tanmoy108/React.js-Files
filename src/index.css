@@ -7,8 +7,14 @@ body
 {
   background-color: rgb(228, 239, 253);
 }
+
 .active-style
 {
-  color:rgb(19, 93, 0) !important;
+  font-weight: bold;
+  color:rgb(40, 182, 5) !important;
   text-transform: capitalize !important;
+}
+button
+{
+  padding: 30px;
 }
