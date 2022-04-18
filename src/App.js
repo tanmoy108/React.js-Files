@@ -1,8 +1,8 @@
 import React from "react";
-import Clock from "./Clock";
+import Form from "./Form";
 
 const App = () => {
-  return <><Clock/></>;
+  return <><Form/></>;
 };
 
 export default App;
