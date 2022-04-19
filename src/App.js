@@ -1,8 +1,8 @@
 import React from "react";
-import Form from "./Form";
+import Inputtemp from "./Inputtemp";
 
 const App = () => {
-  return <><Form/></>;
+  return <><Inputtemp/></>;
 };
 
 export default App;
